@@ -1,0 +1,45 @@
+public class Pessoa {
+    String nome;
+    int idade;
+    char sexo;
+    String faixa;
+
+    public Pessoa(String nome, int idade, char sexo) {
+        this.nome = nome;
+        this.idade = idade;
+        this.sexo = sexo;
+        this.faixa = ""; 
+        this.Classificar(); 
+    }
+
+    public void imprimir() {
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Idade: " + this.idade);
+        System.out.println("Sexo: " + this.sexo); 
+        System.out.println("Faixa: " + this.faixa);
+    }
+
+    public void Classificar() {
+        if (this.idade < 0) {
+            this.faixa = "Erro";
+        } else if (this.idade <= 2) {
+            this.faixa = "Bebê";
+        } else if (this.idade <= 11) {
+            this.faixa = "Criança";
+        } else if (this.idade <= 19) {
+            this.faixa = "Adolescente";
+        } else if (this.idade <= 30) {
+            this.faixa = "Jovem";
+        } else if (this.idade <= 60) {
+            this.faixa = "Adulto";
+        } else {
+            this.faixa = "Idoso";
+        }
+    }
+
+    public static void main(String[] args) {
+        Pessoa pessoa1 = new Pessoa("João", 25, 'M');
+        System.out.println("--- Pessoa 1 ---");
+        pessoa1.imprimir();
+    }
+}
