@@ -1,0 +1,55 @@
+class Aluno {
+    String nome;
+    int idade;
+    String matricula;
+    boolean acordado;
+    
+/*Construtor da classe Aluno 
+*Um construtor é um método especial que é chamado automaticamente quando um novo objeto da classe é criado
+*Sua principal função é inicializar os atributos do objeto.*/   
+    public Aluno(String nome, int idade, String matricula, boolean acordado) {
+        this.nome = nome;
+        this.idade = idade;
+        this.matricula = matricula;
+        this.acordado = acordado;
+    }
+}
+
+public class AcordadoOuDormindo {
+    String nome, matricula;
+    int idade;
+    boolean acordado;
+
+    public AcordadoOuDormindo(String nome, String matricula, int idade, boolean acordado) {
+        this.nome = nome;
+        this.idade = idade;
+        this.matricula = matricula;
+        this.acordado = acordado;
+    }
+
+    public void exibirInformacoes() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Matrícula: " + matricula);
+
+        if (acordado) {
+            System.out.println("O aluno está acordado.");
+        } else {
+            System.out.println("O aluno está dormindo.");
+        }
+    }
+
+    public void alterarEstado(boolean novoEstado) {
+        acordado = novoEstado;
+        System.out.println(nome + " agora está " + (acordado ? "acordado." : "dormindo."));
+    }
+
+    public static void main(String[] args) {
+        Aluno aluno1 = new Aluno("Ana Souza", 22, "2023123", true);
+        AcordadoOuDormindo aluno2 = new AcordadoOuDormindo(aluno1.nome, aluno1.matricula, aluno1.idade, aluno1.acordado);
+
+        aluno2.exibirInformacoes();
+        aluno2.alterarEstado(false);
+        aluno2.exibirInformacoes();
+    }
+}
